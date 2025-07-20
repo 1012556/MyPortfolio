@@ -8,10 +8,11 @@ WORKDIR /src/frontend
 COPY frontend/package*.json ./
 # Install all dependencies including devDependencies for build
 RUN npm ci --include=dev
-# Fix permissions for node_modules binaries
-RUN chmod +x ./node_modules/.bin/*
 COPY frontend/ ./
-RUN npm run build
+# Fix permissions for node_modules binaries after copying files
+RUN chmod +x ./node_modules/.bin/* || true
+# Use absolute paths and ensure permissions
+RUN npx --yes tsc && npx --yes vite build
 
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 WORKDIR /src
