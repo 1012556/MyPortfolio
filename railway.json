@@ -1,0 +1,13 @@
+{
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "NIXPACKS",
+    "buildCommand": "cd frontend && npm install && npm run build && cd .. && dotnet publish MyWebsite/MyWebsite.csproj -c Release -o out",
+    "watchPatterns": ["**/*.cs", "**/*.csproj", "frontend/**/*"]
+  },
+  "deploy": {
+    "startCommand": "cd out && dotnet MyWebsite.dll",
+    "healthcheckPath": "/api/profile/info",
+    "healthcheckTimeout": 100
+  }
+}

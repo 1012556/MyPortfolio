@@ -1,0 +1,17 @@
+# Railway Deployment Configuration
+
+# Build configuration
+nixpacks.providers = ["dotnet", "node"]
+
+[phases.build]
+cmds = [
+    "cd frontend && npm install && npm run build",
+    "cd .. && dotnet publish MyWebsite/MyWebsite.csproj -c Release -o out"
+]
+
+[phases.start]
+cmd = "cd out && dotnet MyWebsite.dll"
+
+[variables]
+ASPNETCORE_ENVIRONMENT = "Production"
+ASPNETCORE_URLS = "http://0.0.0.0:$PORT"

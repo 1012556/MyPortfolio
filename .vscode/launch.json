@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Backend",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "Build Backend",
+            "program": "${workspaceFolder}/MyWebsite/bin/Debug/net9.0/MyWebsite.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/MyWebsite",
+            "stopAtEntry": false,
+            "serverReadyAction": {
+                "action": "openExternally",
+                "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+            },
+            "env": {
+                "ASPNETCORE_ENVIRONMENT": "Development"
+            },
+            "sourceFileMap": {
+                "/Views": "${workspaceFolder}/Views"
+            }
+        }
+    ]
+}

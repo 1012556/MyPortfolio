@@ -1,0 +1,115 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Build Frontend",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"build"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}/frontend"
+			},
+			"group": "build",
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Start Frontend Dev",
+			"type": "shell",
+			"command": "npm",
+			"args": [
+				"run",
+				"dev"
+			],
+			"group": "build",
+			"isBackground": true,
+			"options": {
+				"cwd": "${workspaceFolder}/frontend"
+			},
+			"problemMatcher": {
+				"owner": "vite",
+				"pattern": {
+					"regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"message": 5
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "^\\s*Local:",
+					"endsPattern": "^\\s*ready in"
+				}
+			}
+		},
+		{
+			"label": "Build Backend",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"build"
+			],
+			"group": "build",
+			"options": {
+				"cwd": "${workspaceFolder}/MyWebsite"
+			},
+			"problemMatcher": "$msCompile"
+		},
+		{
+			"label": "Start Backend",
+			"type": "shell",
+			"command": "dotnet",
+			"args": [
+				"run"
+			],
+			"group": "build",
+			"isBackground": true,
+			"options": {
+				"cwd": "${workspaceFolder}/MyWebsite"
+			},
+			"problemMatcher": {
+				"owner": "dotnet",
+				"pattern": {
+					"regexp": "^(.*)\\((\\d+),(\\d+)\\):\\s+(error|warning)\\s+(\\w+):\\s+(.*)$",
+					"file": 1,
+					"line": 2,
+					"column": 3,
+					"severity": 4,
+					"code": 5,
+					"message": 6
+				},
+				"background": {
+					"activeOnStart": true,
+					"beginsPattern": "^info: Microsoft.Hosting.Lifetime",
+					"endsPattern": "Application started\\. Press Ctrl\\+C to shut down\\."
+				}
+			}
+		},
+		{
+			"label": "Build All",
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"Build Backend",
+				"Build Frontend"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			}
+		},
+		{
+			"label": "Start Full Application",
+			"dependsOrder": "parallel",
+			"dependsOn": [
+				"Start Backend",
+				"Start Frontend Dev"
+			],
+			"group": "build"
+		}
+	]
+}
