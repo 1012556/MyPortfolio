@@ -8,6 +8,8 @@ WORKDIR /src/frontend
 COPY frontend/package*.json ./
 # Install all dependencies including devDependencies for build
 RUN npm ci --include=dev
+# Fix permissions for node_modules binaries
+RUN chmod +x ./node_modules/.bin/*
 COPY frontend/ ./
 RUN npm run build
 
