@@ -8,7 +8,7 @@ nixPkgs = ["nodejs", "npm", "dotnet-sdk_9"]
 [phases.build]
 cmds = [
     "cd frontend && npm ci --include=dev",
-    "cd frontend && npm run build", 
+    "cd frontend && npx tsc && npx vite build", 
     "cd .. && dotnet restore MyWebsite/MyWebsite.csproj",
     "dotnet publish MyWebsite/MyWebsite.csproj -c Release -o out"
 ]
