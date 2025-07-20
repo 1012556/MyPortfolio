@@ -34,3 +34,4 @@ C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\MyWebsite\obj\Debug\net9.0\ref
 C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\MyWebsite\obj\Debug\net9.0\MyWebsite.pdb
 C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\MyWebsite\obj\Debug\net9.0\MyWebsite.genruntimeconfig.cache
 C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\MyWebsite\obj\Debug\net9.0\ref\MyWebsite.dll
+C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\MyWebsite\obj\Debug\net9.0\MyWebsite.sourcelink.json

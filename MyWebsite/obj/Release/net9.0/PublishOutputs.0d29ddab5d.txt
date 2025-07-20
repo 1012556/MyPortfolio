@@ -1,0 +1,9 @@
+C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\out\MyWebsite.exe
+C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\out\appsettings.Development.json
+C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\out\appsettings.json
+C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\out\MyWebsite.dll
+C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\out\MyWebsite.deps.json
+C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\out\MyWebsite.runtimeconfig.json
+C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\out\MyWebsite.pdb
+C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\out\Microsoft.AspNetCore.OpenApi.dll
+C:\Users\meesb\OneDrive\Documenten\ProfileWebsite\out\Microsoft.OpenApi.dll
