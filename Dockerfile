@@ -19,7 +19,7 @@ WORKDIR /src
 COPY ["MyWebsite/MyWebsite.csproj", "MyWebsite/"]
 RUN dotnet restore "MyWebsite/MyWebsite.csproj"
 COPY MyWebsite/ MyWebsite/
-COPY --from=frontend-build /src/frontend/dist/ MyWebsite/wwwroot/
+COPY --from=frontend-build /src/MyWebsite/wwwroot/ MyWebsite/wwwroot/
 WORKDIR "/src/MyWebsite"
 RUN dotnet build "MyWebsite.csproj" -c Release -o /app/build
 
