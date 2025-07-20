@@ -1,9 +1,7 @@
 # Railway Deployment Configuration
 
 # Use nixpacks providers for Node.js and .NET
-[providers]
-node = "20"
-dotnet = "9.0"
+providers = ["node", "dotnet"]
 
 [phases.setup]
 nixPkgs = ["nodejs", "npm", "dotnet-sdk_9"]
