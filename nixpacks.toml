@@ -1,12 +1,19 @@
 # Railway Deployment Configuration
 
-# Build configuration
-nixpacks.providers = ["dotnet", "node"]
+# Use nixpacks providers for Node.js and .NET
+[providers]
+node = "20"
+dotnet = "9.0"
+
+[phases.setup]
+nixPkgs = ["nodejs", "npm", "dotnet-sdk_9"]
 
 [phases.build]
 cmds = [
-    "cd frontend && npm install && npm run build",
-    "cd .. && dotnet publish MyWebsite/MyWebsite.csproj -c Release -o out"
+    "cd frontend && npm ci --include=dev",
+    "cd frontend && npm run build", 
+    "cd .. && dotnet restore MyWebsite/MyWebsite.csproj",
+    "dotnet publish MyWebsite/MyWebsite.csproj -c Release -o out"
 ]
 
 [phases.start]

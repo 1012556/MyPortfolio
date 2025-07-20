@@ -6,7 +6,8 @@ EXPOSE 443
 FROM node:20 AS frontend-build
 WORKDIR /src/frontend
 COPY frontend/package*.json ./
-RUN npm ci
+# Install all dependencies including devDependencies for build
+RUN npm ci --include=dev
 COPY frontend/ ./
 RUN npm run build
 
